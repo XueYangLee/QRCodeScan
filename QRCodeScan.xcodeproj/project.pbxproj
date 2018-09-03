@@ -15,6 +15,23 @@
 		F1866440213CE28400AF13E7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F186643F213CE28400AF13E7 /* main.m */; };
 		F186644A213CE28400AF13E7 /* QRCodeScanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1866449213CE28400AF13E7 /* QRCodeScanTests.m */; };
 		F1866455213CE28400AF13E7 /* QRCodeScanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1866454213CE28400AF13E7 /* QRCodeScanUITests.m */; };
+		F186646F213CE2D300AF13E7 /* ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1866464213CE2D200AF13E7 /* ring.wav */; };
+		F1866470213CE2D300AF13E7 /* 切换@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1866465213CE2D200AF13E7 /* 切换@3x.png */; };
+		F1866471213CE2D300AF13E7 /* scanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1866466213CE2D200AF13E7 /* scanLine@2x.png */; };
+		F1866472213CE2D300AF13E7 /* 手电@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1866467213CE2D200AF13E7 /* 手电@3x.png */; };
+		F1866473213CE2D300AF13E7 /* 相册@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1866468213CE2D200AF13E7 /* 相册@3x.png */; };
+		F1866474213CE2D300AF13E7 /* scanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F1866469213CE2D200AF13E7 /* scanLine@3x.png */; };
+		F1866475213CE2D300AF13E7 /* 切换@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F186646A213CE2D200AF13E7 /* 切换@2x.png */; };
+		F1866476213CE2D300AF13E7 /* 扫描框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F186646B213CE2D200AF13E7 /* 扫描框@3x.png */; };
+		F1866477213CE2D300AF13E7 /* 相册@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F186646C213CE2D300AF13E7 /* 相册@2x.png */; };
+		F1866478213CE2D300AF13E7 /* 手电@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F186646D213CE2D300AF13E7 /* 手电@2x.png */; };
+		F1866479213CE2D300AF13E7 /* 扫描框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F186646E213CE2D300AF13E7 /* 扫描框@2x.png */; };
+		F1866481213CE2E000AF13E7 /* CodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F186647B213CE2DF00AF13E7 /* CodeScanViewController.m */; };
+		F1866482213CE2E000AF13E7 /* CodeScanTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F186647C213CE2DF00AF13E7 /* CodeScanTools.m */; };
+		F1866483213CE2E000AF13E7 /* CodeGenerateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F186647E213CE2E000AF13E7 /* CodeGenerateTools.m */; };
+		F1866486213CE35F00AF13E7 /* CodeGenerateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1866485213CE35E00AF13E7 /* CodeGenerateViewController.m */; };
+		F186648A213D11C300AF13E7 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F1866489213D11C300AF13E7 /* UIView+Extension.m */; };
+		F186648D213D127300AF13E7 /* CustomTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F186648C213D127300AF13E7 /* CustomTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +68,30 @@
 		F1866450213CE28400AF13E7 /* QRCodeScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRCodeScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1866454213CE28400AF13E7 /* QRCodeScanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCodeScanUITests.m; sourceTree = "<group>"; };
 		F1866456213CE28400AF13E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1866464213CE2D200AF13E7 /* ring.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ring.wav; sourceTree = "<group>"; };
+		F1866465213CE2D200AF13E7 /* 切换@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "切换@3x.png"; sourceTree = "<group>"; };
+		F1866466213CE2D200AF13E7 /* scanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@2x.png"; sourceTree = "<group>"; };
+		F1866467213CE2D200AF13E7 /* 手电@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手电@3x.png"; sourceTree = "<group>"; };
+		F1866468213CE2D200AF13E7 /* 相册@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "相册@3x.png"; sourceTree = "<group>"; };
+		F1866469213CE2D200AF13E7 /* scanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@3x.png"; sourceTree = "<group>"; };
+		F186646A213CE2D200AF13E7 /* 切换@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "切换@2x.png"; sourceTree = "<group>"; };
+		F186646B213CE2D200AF13E7 /* 扫描框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫描框@3x.png"; sourceTree = "<group>"; };
+		F186646C213CE2D300AF13E7 /* 相册@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "相册@2x.png"; sourceTree = "<group>"; };
+		F186646D213CE2D300AF13E7 /* 手电@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手电@2x.png"; sourceTree = "<group>"; };
+		F186646E213CE2D300AF13E7 /* 扫描框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "扫描框@2x.png"; sourceTree = "<group>"; };
+		F186647A213CE2DF00AF13E7 /* CodeScanTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeScanTools.h; sourceTree = "<group>"; };
+		F186647B213CE2DF00AF13E7 /* CodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeScanViewController.m; sourceTree = "<group>"; };
+		F186647C213CE2DF00AF13E7 /* CodeScanTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeScanTools.m; sourceTree = "<group>"; };
+		F186647D213CE2E000AF13E7 /* CodeGenerateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerateTools.h; sourceTree = "<group>"; };
+		F186647E213CE2E000AF13E7 /* CodeGenerateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeGenerateTools.m; sourceTree = "<group>"; };
+		F186647F213CE2E000AF13E7 /* CodeScanHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeScanHeader.h; sourceTree = "<group>"; };
+		F1866480213CE2E000AF13E7 /* CodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeScanViewController.h; sourceTree = "<group>"; };
+		F1866484213CE35E00AF13E7 /* CodeGenerateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeGenerateViewController.h; sourceTree = "<group>"; };
+		F1866485213CE35E00AF13E7 /* CodeGenerateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeGenerateViewController.m; sourceTree = "<group>"; };
+		F1866488213D11C300AF13E7 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		F1866489213D11C300AF13E7 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		F186648B213D127300AF13E7 /* CustomTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTools.h; sourceTree = "<group>"; };
+		F186648C213D127300AF13E7 /* CustomTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTools.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +142,14 @@
 		F186642F213CE28200AF13E7 /* QRCodeScan */ = {
 			isa = PBXGroup;
 			children = (
+				F1866487213D119600AF13E7 /* Tools */,
+				F1866462213CE2A400AF13E7 /* CodeScan */,
 				F1866430213CE28200AF13E7 /* AppDelegate.h */,
 				F1866431213CE28200AF13E7 /* AppDelegate.m */,
 				F1866433213CE28200AF13E7 /* ViewController.h */,
 				F1866434213CE28200AF13E7 /* ViewController.m */,
+				F1866484213CE35E00AF13E7 /* CodeGenerateViewController.h */,
+				F1866485213CE35E00AF13E7 /* CodeGenerateViewController.m */,
 				F1866436213CE28200AF13E7 /* Main.storyboard */,
 				F1866439213CE28400AF13E7 /* Assets.xcassets */,
 				F186643B213CE28400AF13E7 /* LaunchScreen.storyboard */,
@@ -130,6 +175,50 @@
 				F1866456213CE28400AF13E7 /* Info.plist */,
 			);
 			path = QRCodeScanUITests;
+			sourceTree = "<group>";
+		};
+		F1866462213CE2A400AF13E7 /* CodeScan */ = {
+			isa = PBXGroup;
+			children = (
+				F186647D213CE2E000AF13E7 /* CodeGenerateTools.h */,
+				F186647E213CE2E000AF13E7 /* CodeGenerateTools.m */,
+				F186647F213CE2E000AF13E7 /* CodeScanHeader.h */,
+				F186647A213CE2DF00AF13E7 /* CodeScanTools.h */,
+				F186647C213CE2DF00AF13E7 /* CodeScanTools.m */,
+				F1866480213CE2E000AF13E7 /* CodeScanViewController.h */,
+				F186647B213CE2DF00AF13E7 /* CodeScanViewController.m */,
+				F1866463213CE2C500AF13E7 /* resource */,
+			);
+			path = CodeScan;
+			sourceTree = "<group>";
+		};
+		F1866463213CE2C500AF13E7 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				F186646A213CE2D200AF13E7 /* 切换@2x.png */,
+				F1866465213CE2D200AF13E7 /* 切换@3x.png */,
+				F186646E213CE2D300AF13E7 /* 扫描框@2x.png */,
+				F186646B213CE2D200AF13E7 /* 扫描框@3x.png */,
+				F186646D213CE2D300AF13E7 /* 手电@2x.png */,
+				F1866467213CE2D200AF13E7 /* 手电@3x.png */,
+				F186646C213CE2D300AF13E7 /* 相册@2x.png */,
+				F1866468213CE2D200AF13E7 /* 相册@3x.png */,
+				F1866464213CE2D200AF13E7 /* ring.wav */,
+				F1866466213CE2D200AF13E7 /* scanLine@2x.png */,
+				F1866469213CE2D200AF13E7 /* scanLine@3x.png */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		F1866487213D119600AF13E7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F1866488213D11C300AF13E7 /* UIView+Extension.h */,
+				F1866489213D11C300AF13E7 /* UIView+Extension.m */,
+				F186648B213D127300AF13E7 /* CustomTools.h */,
+				F186648C213D127300AF13E7 /* CustomTools.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,9 +324,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1866472213CE2D300AF13E7 /* 手电@3x.png in Resources */,
+				F186646F213CE2D300AF13E7 /* ring.wav in Resources */,
+				F1866478213CE2D300AF13E7 /* 手电@2x.png in Resources */,
 				F186643D213CE28400AF13E7 /* LaunchScreen.storyboard in Resources */,
+				F1866473213CE2D300AF13E7 /* 相册@3x.png in Resources */,
+				F1866470213CE2D300AF13E7 /* 切换@3x.png in Resources */,
 				F186643A213CE28400AF13E7 /* Assets.xcassets in Resources */,
+				F1866476213CE2D300AF13E7 /* 扫描框@3x.png in Resources */,
 				F1866438213CE28200AF13E7 /* Main.storyboard in Resources */,
+				F1866479213CE2D300AF13E7 /* 扫描框@2x.png in Resources */,
+				F1866475213CE2D300AF13E7 /* 切换@2x.png in Resources */,
+				F1866471213CE2D300AF13E7 /* scanLine@2x.png in Resources */,
+				F1866477213CE2D300AF13E7 /* 相册@2x.png in Resources */,
+				F1866474213CE2D300AF13E7 /* scanLine@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1866435213CE28200AF13E7 /* ViewController.m in Sources */,
+				F1866482213CE2E000AF13E7 /* CodeScanTools.m in Sources */,
+				F186648D213D127300AF13E7 /* CustomTools.m in Sources */,
+				F1866486213CE35F00AF13E7 /* CodeGenerateViewController.m in Sources */,
 				F1866440213CE28400AF13E7 /* main.m in Sources */,
+				F1866483213CE2E000AF13E7 /* CodeGenerateTools.m in Sources */,
+				F1866481213CE2E000AF13E7 /* CodeScanViewController.m in Sources */,
+				F186648A213D11C300AF13E7 /* UIView+Extension.m in Sources */,
 				F1866432213CE28200AF13E7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
