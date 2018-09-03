@@ -62,4 +62,26 @@
 
 
 
+
+#pragma mark 弹窗
++ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController
+{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:handler];
+    [alert addAction:confirm];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    [viewController presentViewController:alert animated:YES completion:nil];
+}
+
++ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController
+{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:confirm];
+    [viewController presentViewController:alert animated:YES completion:nil];
+}
+
+
 @end

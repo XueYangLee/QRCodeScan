@@ -254,8 +254,9 @@
     }
 }
 
+#pragma mark 扫描/输入二维码/条形码结果
 - (void)scanCodeResult:(NSString *)scanCode{
-    
+    [CustomTools showAlert:[NSString stringWithFormat:@"扫描(输入)结果为：%@",scanCode] Target:self];
     
 }
 
@@ -278,7 +279,33 @@
 
 #pragma mark 调用相册
 - (void)photoClick{
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
+        UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        imagePicker.allowsEditing = YES;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }else{
+        [CustomTools showAlert:@"不支持访问相册" Target:self];
+    }
+}
+
+#pragma mark - - - UIImagePickerControllerDelegate相册回调
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode
+                                              context:nil
+                                              options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    NSArray *features = [detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
+    if (features.count >= 1){
+        CIQRCodeFeature *feature = [features firstObject];
+//        NSLog(@"%@>>>>>",feature.messageString);
+        [self scanCodeResult:feature.messageString];
+    }else{
+        [CustomTools showAlert:@"无法识别图中二维码" Target:self];
+    }
 }
 
 

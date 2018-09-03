@@ -35,4 +35,8 @@
 + (UITextField *)textFieldWithPlaceHolder:(NSString *)placeHolder textFont:(NSInteger)font textColor:(UIColor *)color;
 
 
++ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController;
+
++ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController;
+
 @end

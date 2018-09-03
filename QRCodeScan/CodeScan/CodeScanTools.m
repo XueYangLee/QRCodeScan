@@ -7,6 +7,7 @@
 //
 
 #import "CodeScanTools.h"
+#import "CustomTools.h"
 
 /** app名字 */
 #define APP_NAME [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]
@@ -34,7 +35,7 @@
         } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
             [VC.navigationController pushViewController:scanVC animated:YES];
         } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
-            [self alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
+            [CustomTools alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
                 [CodeScanTools openSystemSettings];
             } Target:VC];
             
@@ -42,7 +43,7 @@
             NSLog(@"因为系统原因, 无法访问相册");
         }
     } else {
-        [self showAlert:@"未检测到您的摄像头" Target:VC];
+        [CustomTools showAlert:@"未检测到您的摄像头" Target:VC];
     }
 }
 
@@ -118,25 +119,5 @@
 }
 
 
-
-#pragma mark 弹窗
-+ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController
-{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:handler];
-    [alert addAction:confirm];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:nil];
-    [alert addAction:cancel];
-    [viewController presentViewController:alert animated:YES completion:nil];
-}
-
-+ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController
-{
-    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:confirm];
-    [viewController presentViewController:alert animated:YES completion:nil];
-}
 
 @end
