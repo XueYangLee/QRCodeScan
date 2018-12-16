@@ -30,6 +30,9 @@
                     });
                 } else {
                     // 用户第一次拒绝了访问相机权限
+                    [CustomTools alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
+                        [CodeScanTools openSystemSettings];
+                    } Target:VC];
                 }
             }];
         } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
