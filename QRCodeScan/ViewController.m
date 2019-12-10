@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "CodeScanHeader.h"
-#import "CodeScanTools.h"
-#import "CodeScanViewController.h"
+#import "QRCodeScanHeader.h"
+#import "QRCodeScanTools.h"
 #import "CodeGenerateViewController.h"
+#import "QRCodeScanViewController.h"
 
 @interface ViewController ()
 
@@ -37,7 +37,7 @@
 #warning 不要忘记plist文件设置权限
 - (void)btnClick:(UIButton *)sender{
     if (sender.tag==0) {
-        [CodeScanTools permitCameraWithTarget:self PushScanView:[CodeScanViewController new]];
+        [QRCodeScanTools permitCameraWithTarget:self PushScanView:[QRCodeScanViewController new]];
     }else{
         [self.navigationController pushViewController:[CodeGenerateViewController new] animated:YES];
     }

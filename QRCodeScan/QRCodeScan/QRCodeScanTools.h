@@ -1,20 +1,20 @@
 //
-//  CodeScanTools.h
+//  QRCodeScanTools.h
 //  QRCodeScan
 //
-//  Created by 李雪阳 on 2018/8/17.
-//  Copyright © 2018年 singularity. All rights reserved.
+//  Created by 李雪阳 on 2019/12/9.
+//  Copyright © 2019 singularity. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "CodeScanHeader.h"
+#import "QRCodeScanHeader.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-
-@interface CodeScanTools : NSObject
+@interface QRCodeScanTools : NSObject
 
 /**
  验证用户是否开启相机并跳转
@@ -55,4 +55,11 @@
  */
 + (void)openSystemSettings;
 
+
+
++ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController;
++ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController;
+
 @end
+
+NS_ASSUME_NONNULL_END

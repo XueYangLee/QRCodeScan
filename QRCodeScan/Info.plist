@@ -45,5 +45,7 @@
 	<string>获取相机</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>获取相册</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>获取相册</string>
 </dict>
 </plist>

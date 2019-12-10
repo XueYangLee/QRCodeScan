@@ -1,14 +1,14 @@
 //
-//  CodeGenerateTools.m
+//  QRCodeGenerateTools.m
 //  QRCodeScan
 //
-//  Created by 李雪阳 on 2018/9/3.
-//  Copyright © 2018年 singularity. All rights reserved.
+//  Created by 李雪阳 on 2019/12/9.
+//  Copyright © 2019 singularity. All rights reserved.
 //
 
-#import "CodeGenerateTools.h"
+#import "QRCodeGenerateTools.h"
 
-@implementation CodeGenerateTools
+@implementation QRCodeGenerateTools
 
 /**
  *  生成一张普通的二维码
@@ -40,7 +40,7 @@
 /** 根据CIImage生成指定大小的UIImage */
 + (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size {
     CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
+    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));// 计算需要缩放的比例
     
     // 1.创建bitmap;
     size_t width = CGRectGetWidth(extent) * scale;
@@ -162,6 +162,49 @@
     CIImage *colorImage = [color_filter outputImage];
     
     return [UIImage imageWithCIImage:colorImage];
+}
+
+
+/** 生成条形码 */
++ (UIImage *)generateCode128:(NSString *)code size:(CGSize)size {
+    
+    NSData *codeData = [code dataUsingEncoding:NSUTF8StringEncoding];
+    CIFilter *filter = [CIFilter filterWithName:@"CICode128BarcodeGenerator" withInputParameters:@{@"inputMessage": codeData, @"inputQuietSpace": @.0}];
+    /* @{@"inputMessage": codeData, @"inputQuietSpace": @(.0), @"inputBarcodeHeight": @(size.width / 3)} */
+    UIImage *codeImage = [self scaleImage:filter.outputImage toSize:size];
+    
+    return codeImage;
+}
+
+// 缩放图片(生成高质量图片）
++ (UIImage *)scaleImage:(CIImage *)image toSize:(CGSize)size {
+    
+    //! 将CIImage转成CGImageRef
+    CGRect integralRect = image.extent;// CGRectIntegral(image.extent);// 将rect取整后返回，origin取舍，size取入
+    CGImageRef imageRef = [[CIContext context] createCGImage:image fromRect:integralRect];
+    
+    //! 创建上下文
+    CGFloat sideScale = fminf(size.width / integralRect.size.width, size.width / integralRect.size.height) * [UIScreen mainScreen].scale;// 计算需要缩放的比例
+    size_t contextRefWidth = ceilf(integralRect.size.width * sideScale);
+    size_t contextRefHeight = ceilf(integralRect.size.height * sideScale);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceGray();
+    CGContextRef contextRef = CGBitmapContextCreate(nil, contextRefWidth, contextRefHeight, 8, 0, colorSpaceRef, (CGBitmapInfo)kCGImageAlphaNone);// 灰度、不透明
+    CGColorSpaceRelease(colorSpaceRef);
+    
+    CGContextSetInterpolationQuality(contextRef, kCGInterpolationNone);// 设置上下文无插值
+    CGContextScaleCTM(contextRef, sideScale, sideScale);// 设置上下文缩放
+    CGContextDrawImage(contextRef, integralRect, imageRef);// 在上下文中的integralRect中绘制imageRef
+    CGImageRelease(imageRef);
+    
+    //! 从上下文中获取CGImageRef
+    CGImageRef scaledImageRef = CGBitmapContextCreateImage(contextRef);
+    CGContextRelease(contextRef);
+    
+    //! 将CGImageRefc转成UIImage
+    UIImage *scaledImage = [UIImage imageWithCGImage:scaledImageRef scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+    CGImageRelease(scaledImageRef);
+    
+    return scaledImage;
 }
 
 @end

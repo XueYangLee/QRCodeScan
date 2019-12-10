@@ -1,13 +1,12 @@
 //
-//  CodeScanTools.m
+//  QRCodeScanTools.m
 //  QRCodeScan
 //
-//  Created by 李雪阳 on 2018/8/17.
-//  Copyright © 2018年 singularity. All rights reserved.
+//  Created by 李雪阳 on 2019/12/9.
+//  Copyright © 2019 singularity. All rights reserved.
 //
 
-#import "CodeScanTools.h"
-#import "CustomTools.h"
+#import "QRCodeScanTools.h"
 
 /** app名字 */
 #define APP_NAME [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"]
@@ -15,7 +14,7 @@
 #define DEVICE_TYPE [UIDevice currentDevice].model
 #define kIOS8_OR_LATER ([[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] != NSOrderedAscending)
 
-@implementation CodeScanTools
+@implementation QRCodeScanTools
 
 + (void)permitCameraWithTarget:(UIViewController *)VC PushScanView:(UIViewController *)scanVC{
     
@@ -30,23 +29,32 @@
                     });
                 } else {
                     // 用户第一次拒绝了访问相机权限
-                    [CustomTools alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
-                        [CodeScanTools openSystemSettings];
-                    } Target:VC];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
+                            [self openSystemSettings];
+                        } Target:VC];
+                    });
                 }
             }];
         } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
-            [VC.navigationController pushViewController:scanVC animated:YES];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [VC.navigationController pushViewController:scanVC animated:YES];
+            });
         } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
-            [CustomTools alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
-                [CodeScanTools openSystemSettings];
-            } Target:VC];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self alertActionWithTitle:@"提示" Message:[NSString stringWithFormat:@"请在%@的\"设置-隐私-相机\"选项中，\r允许%@访问你的相机。",DEVICE_TYPE,APP_NAME] actionHandler:^(UIAlertAction *action) {
+                    [self openSystemSettings];
+                } Target:VC];
+            });
+            
             
         } else if (status == AVAuthorizationStatusRestricted) {
             NSLog(@"因为系统原因, 无法访问相册");
         }
     } else {
-        [CustomTools showAlert:@"未检测到您的摄像头" Target:VC];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self showAlert:@"未检测到您的摄像头" Target:VC];
+        });
     }
 }
 
@@ -82,6 +90,7 @@
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
     if (sounding) {
+//        AudioServicesPlaySystemSound(1360);//系统声音
         //设置自定义声音
         SystemSoundID soundID;
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:ringPath ofType:ringType]], &soundID);
@@ -122,5 +131,27 @@
 }
 
 
+
+
+
+#pragma mark -弹窗
++ (void)alertActionWithTitle:(NSString *)title Message:(NSString *)message actionHandler:(void (^ __nullable)(UIAlertAction *action))handler Target:(UIViewController *)viewController
+{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:handler];
+    [alert addAction:confirm];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消"style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:cancel];
+    [viewController presentViewController:alert animated:YES completion:nil];
+}
+
++ (void)showAlert:(NSString *)message Target:(UIViewController *)viewController
+{
+    UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *confirm=[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:confirm];
+    [viewController presentViewController:alert animated:YES completion:nil];
+}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "CodeGenerateViewController.h"
-#import "CodeGenerateTools.h"
+#import "QRCodeGenerateTools.h"
 
 @interface CodeGenerateViewController ()
 
@@ -28,19 +28,19 @@
 
 - (void)setDefaultQRCode{
     UIImageView *code=[[UIImageView alloc]initWithFrame:CGRectMake(10, 90, 100, 100)];
-    code.image=[CodeGenerateTools generateWithDefaultQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" imageViewWidth:100];
+    code.image=[QRCodeGenerateTools generateWithDefaultQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" imageViewWidth:100];
     [self.view addSubview:code];
 }
 
 - (void)setLogoQRCode{
     UIImageView *code=[[UIImageView alloc]initWithFrame:CGRectMake(10, 200, 100, 100)];
-    code.image=[CodeGenerateTools generateWithLogoQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" logoImageName:@"相册" logoScaleToSuperView:0.2];
+    code.image=[QRCodeGenerateTools generateWithLogoQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" logoImageName:@"scan_photo" logoScaleToSuperView:0.2];
     [self.view addSubview:code];
 }
 
 - (void)setColorQRCode{
     UIImageView *code=[[UIImageView alloc]initWithFrame:CGRectMake(10, 310, 100, 100)];
-    code.image=[CodeGenerateTools generateWithColorQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" backgroundColor:[CIColor blueColor] mainColor:[CIColor yellowColor]];
+    code.image=[QRCodeGenerateTools generateWithColorQRCodeData:@"https://github.com/XueYangLee/QRCodeScan" backgroundColor:[CIColor blueColor] mainColor:[CIColor yellowColor]];
     [self.view addSubview:code];
 }
 
