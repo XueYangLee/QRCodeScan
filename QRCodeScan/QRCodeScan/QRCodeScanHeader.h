@@ -10,7 +10,6 @@
 #define QRCodeScanHeader_h
 
 
-
 #define QRCode_SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define QRCode_SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 #define QRCode_STATUS_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
@@ -45,9 +44,6 @@
 
 #define QRCode_BGAlpha            0.6
 
-
-static NSString *ringPath = @"ring";
-static NSString *ringType = @"wav";
 
 /** ---------------扫描所需部分--------------- */
 
