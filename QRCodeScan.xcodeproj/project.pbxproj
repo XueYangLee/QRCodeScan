@@ -121,8 +121,6 @@
 				F19404DC26EF3FD5003EA13A /* UIImage+QRCodeExt.m */,
 				F19404DE26EF4012003EA13A /* UIView+QRCodeExt.h */,
 				F19404DF26EF4012003EA13A /* UIView+QRCodeExt.m */,
-				F10E0181239F42700085C4F8 /* QRCodeScanViewController.h */,
-				F10E0182239F42700085C4F8 /* QRCodeScanViewController.m */,
 				F19404D626EF3AFE003EA13A /* QRCodeResource.bundle */,
 			);
 			path = QRCodeScan;
@@ -156,6 +154,8 @@
 				F1866431213CE28200AF13E7 /* AppDelegate.m */,
 				F1866433213CE28200AF13E7 /* ViewController.h */,
 				F1866434213CE28200AF13E7 /* ViewController.m */,
+				F10E0181239F42700085C4F8 /* QRCodeScanViewController.h */,
+				F10E0182239F42700085C4F8 /* QRCodeScanViewController.m */,
 				F1866484213CE35E00AF13E7 /* CodeGenerateViewController.h */,
 				F1866485213CE35E00AF13E7 /* CodeGenerateViewController.m */,
 				F1866436213CE28200AF13E7 /* Main.storyboard */,

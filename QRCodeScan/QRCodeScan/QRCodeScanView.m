@@ -114,13 +114,13 @@
 
 - (UIBezierPath *)scanPath{
     UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:self.bounds];
-    [rectPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_barBgImgHeight) cornerRadius:1] bezierPathByReversingPath]];
+    [rectPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_BarBGImgHeight) cornerRadius:1] bezierPathByReversingPath]];
     return rectPath;
 }
 
 - (UIBezierPath *)inputPath{
     UIBezierPath *rectPath = [UIBezierPath bezierPathWithRect:self.bounds];
-    [rectPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_inputTextHeight) cornerRadius:1] bezierPathByReversingPath]];
+    [rectPath appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_InputTextHeight) cornerRadius:1] bezierPathByReversingPath]];
     return rectPath;
 }
 
@@ -141,11 +141,11 @@
     if (!sender.selected) {//扫描
         [UIView animateWithDuration:0.5 animations:^{
             [UIView setAnimationCurve:UIViewAnimationCurveLinear];//均匀线性动画
-            self.bgImg.frame=CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_barBgImgHeight);
+            self.bgImg.frame=CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_BarBGImgHeight);
             [self setScanTypeTransform:InputToScan];
             [self.codeTextView removeFromSuperview];
             [self.link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-            self.switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, MaxY(self.bgImg)+16, 118, 32);
+            self.switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, QRCode_MaxY(self.bgImg)+16, 118, 32);
         } completion:^(BOOL finished) {
             [self.codeNumText resignFirstResponder];
             [self addSubview:self.scrollLine];
@@ -158,12 +158,12 @@
     }else{//手动输入
         [UIView animateWithDuration:0.5 animations:^{
             [UIView setAnimationCurve:UIViewAnimationCurveLinear];
-            self.bgImg.frame=CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_inputTextHeight);
+            self.bgImg.frame=CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_InputTextHeight);
             [self setScanTypeTransform:ScanToInput];
             [self.link removeFromRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
             [self.scrollLine removeFromSuperview];
             [self.tip removeFromSuperview];
-            self.switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, MaxY(self.bgImg)+16, 118, 32);
+            self.switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, QRCode_MaxY(self.bgImg)+16, 118, 32);
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.45 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self addSubview:self.codeTextView];
@@ -185,14 +185,14 @@
         CGFloat y = self.scrollLine.frame.origin.y;
         y += 2;
         [self.scrollLine setQRCode_y:y];
-        if (y >= (QRCode_barBgImgY+QRCode_barBgImgHeight-QRCode_scrollLineHeight)) {
+        if (y >= (QRCode_BarBGImgY+QRCode_BarBGImgHeight-QRCode_ScrollLineHeight)) {
             self.lineAnimateUp = NO;
         }
     }else{
         CGFloat y = self.scrollLine.frame.origin.y;
         y -= 2;
         [self.scrollLine setQRCode_y:y];
-        if (y <= QRCode_barBgImgY) {
+        if (y <= QRCode_BarBGImgY) {
             self.lineAnimateUp = YES;
         }
     }
@@ -201,7 +201,7 @@
 #pragma mark -基础视图
 - (UIImageView *)bgImg {
     if (!_bgImg) {
-        _bgImg = [[UIImageView alloc]initWithFrame:CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_barBgImgHeight)];
+        _bgImg = [[UIImageView alloc]initWithFrame:CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_BarBGImgHeight)];
         _bgImg.image = [UIImage QRCodeImageNamed:@"scan_scanFrame"];
     }
     return _bgImg;
@@ -209,7 +209,7 @@
 
 - (UIImageView *)scrollLine {
     if (!_scrollLine) {
-        _scrollLine = [[UIImageView alloc]initWithFrame:CGRectMake(QRCode_barBgImgX, QRCode_barBgImgY, QRCode_barBgImgWidth, QRCode_scrollLineHeight)];
+        _scrollLine = [[UIImageView alloc]initWithFrame:CGRectMake(QRCode_BarBGImgX, QRCode_BarBGImgY, QRCode_BarBGImgWidth, QRCode_ScrollLineHeight)];
         _scrollLine.image = [UIImage QRCodeImageNamed:@"scan_scanLine"];
     }
     return _scrollLine;
@@ -217,7 +217,7 @@
 
 - (UILabel *)tip {
     if (!_tip) {
-        _tip = [[UILabel alloc]initWithFrame:CGRectMake(QRCode_barBgImgX, QRCode_barTipY, QRCode_barBgImgWidth, QRCode_barTipHeight)];
+        _tip = [[UILabel alloc]initWithFrame:CGRectMake(QRCode_BarBGImgX, QRCode_BarTipY, QRCode_BarBGImgWidth, QRCode_BarTipHeight)];
         _tip.text = @"二维码/条形码扫描";
         _tip.numberOfLines = 0;
         _tip.textColor = [UIColor whiteColor];
@@ -234,7 +234,7 @@
         [_switchBtn setTitle:@" 切换手动输入" forState:UIControlStateNormal];
         [_switchBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_switchBtn addTarget:self action:@selector(exchangeSacnClick:) forControlEvents:UIControlEventTouchUpInside];
-        _switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, MaxY(_bgImg)+16, 118, 32);
+        _switchBtn.frame=CGRectMake(QRCode_SCREEN_WIDTH/2-59, QRCode_MaxY(_bgImg)+16, 118, 32);
         _switchBtn.backgroundColor=[[UIColor whiteColor]colorWithAlphaComponent:0.35];
         [_switchBtn setImage:[UIImage QRCodeImageNamed:@"scan_exchange"] forState:UIControlStateNormal];
         [_switchBtn setTitle:@" 切换至扫描" forState:UIControlStateSelected];
@@ -248,8 +248,8 @@
 
 - (UIView *)codeTextView{
     if (!_codeTextView) {
-        _codeTextView=[[UIView alloc]initWithFrame:CGRectMake(QRCode_barBgImgX+1, QRCode_barBgImgY+1, QRCode_barBgImgWidth-2, QRCode_inputTextHeight-2)];
-        _codeTextView.backgroundColor=[FONT_COLOR333 colorWithAlphaComponent:0.75];
+        _codeTextView=[[UIView alloc]initWithFrame:CGRectMake(QRCode_BarBGImgX+1, QRCode_BarBGImgY+1, QRCode_BarBGImgWidth-2, QRCode_InputTextHeight-2)];
+        _codeTextView.backgroundColor=[QRCode_BLACK_COLOR colorWithAlphaComponent:0.75];
         
         _codeNumText=[UITextField new];
         _codeNumText.placeholder=@"二维码/条形码";
@@ -276,7 +276,7 @@
 - (UIView *)maskView{
     if (!_maskView) {
         _maskView = [[UIView alloc] initWithFrame:self.bounds];
-        _maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:QRCode_bgAlpha];
+        _maskView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:QRCode_BGAlpha];
     }
     return _maskView;
 }

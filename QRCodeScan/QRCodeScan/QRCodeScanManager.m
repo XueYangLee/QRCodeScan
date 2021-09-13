@@ -95,7 +95,7 @@
         
         //8.设置有效扫描区域，默认整个图层(很特别，1、要除以屏幕宽高比例，2、其中x和y、width和height分别互换位置)
         //rectOfInterest 填写的是一个比例，输出流视图preview.frame为 x , y, w, h, 要设置的矩形快的scanFrame 为 x1, y1, w1, h1. 那么rectOfInterest 应该设置为 CGRectMake(y1/y, x1/x, h1/h, w1/w)。
-        CGRect rect = CGRectMake(QRCode_barBgImgY/QRCode_SCREEN_HEIGHT, QRCode_barBgImgX/QRCode_SCREEN_WIDTH, QRCode_barBgImgHeight/QRCode_SCREEN_HEIGHT, QRCode_barBgImgWidth/QRCode_SCREEN_WIDTH);
+        CGRect rect = CGRectMake(QRCode_BarBGImgY/QRCode_SCREEN_HEIGHT, QRCode_BarBGImgX/QRCode_SCREEN_WIDTH, QRCode_BarBGImgHeight/QRCode_SCREEN_HEIGHT, QRCode_BarBGImgWidth/QRCode_SCREEN_WIDTH);
         //CGRect rect = CGRectMake(0, 0, 0, 0);
         output.rectOfInterest = rect;
         
