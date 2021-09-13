@@ -57,8 +57,8 @@
 - (void)setupNavigationView{
     self.navigationItem.title=@"二维码/条形码";
     
-    UIBarButtonItem *photo=[[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"scan_photo"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(photoClick)];
-    UIBarButtonItem *flash=[[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"scan_flash"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(flashClick)];
+    UIBarButtonItem *photo=[[UIBarButtonItem alloc]initWithImage:[[UIImage QRCodeImageNamed:@"scan_photo"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(photoClick)];
+    UIBarButtonItem *flash=[[UIBarButtonItem alloc]initWithImage:[[UIImage QRCodeImageNamed:@"scan_flash"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStyleDone target:self action:@selector(flashClick)];
     self.navigationItem.rightBarButtonItems=@[photo,flash];
 }
 

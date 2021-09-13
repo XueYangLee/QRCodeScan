@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     for (NSInteger i=0; i<2; i++) {
-        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, i*50+100, SCREEN_WIDTH, 40)];
+        UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake(0, i*50+100, QRCode_SCREEN_WIDTH, 40)];
         [btn setTitle:i==0?@"二维码/条形码扫描":@"生成二维码" forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         btn.backgroundColor=[UIColor lightGrayColor];

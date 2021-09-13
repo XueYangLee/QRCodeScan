@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+QRCodeExt.h"
+#import "UIImage+QRCodeExt.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

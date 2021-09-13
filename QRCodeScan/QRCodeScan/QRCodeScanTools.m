@@ -91,9 +91,11 @@
     }
     if (sounding) {
 //        AudioServicesPlaySystemSound(1360);//系统声音
+        
         //设置自定义声音
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"QRCodeResource" ofType:@"bundle"];
         SystemSoundID soundID;
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:ringPath ofType:ringType]], &soundID);
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:[path stringByAppendingPathComponent:@"scan_ring.wav"]], &soundID);
         AudioServicesPlaySystemSound(soundID);
     }
 }
