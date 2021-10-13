@@ -1,0 +1,28 @@
+{
+  "name": "QRCodeScan",
+  "version": "0.1.0",
+  "summary": "扫描组件",
+  "description": "扫描组件",
+  "homepage": "https://github.com/XueYangLee/QRCodeScan",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Singularity_Lee": "496736912@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/XueYangLee/QRCodeScan.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "QRCodeScan/Classes/*.{h,m}",
+  "resource_bundles": {
+    "QRCodeScan": [
+      "QRCodeScan/Assets/**/*.*"
+    ]
+  },
+  "public_header_files": "QRCodeScan/Classes/**/*.h"
+}

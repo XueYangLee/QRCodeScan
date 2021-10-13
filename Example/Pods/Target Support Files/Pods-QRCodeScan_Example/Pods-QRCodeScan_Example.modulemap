@@ -1,0 +1,6 @@
+framework module Pods_QRCodeScan_Example {
+  umbrella header "Pods-QRCodeScan_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
